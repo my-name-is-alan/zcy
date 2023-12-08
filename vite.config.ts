@@ -11,6 +11,9 @@ export default defineConfig(() => {
         "Cache-Control": "public, max-age=0",
       },
     },
+    server: {
+      host:'0.0.0.0'
+    },
     preview: {
       headers: {
         "Cache-Control": "public, max-age=600",
