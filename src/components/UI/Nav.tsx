@@ -13,12 +13,18 @@ export default component$(() => {
   }
   
   const currentTheme = useSignal<Theme>('light')
-  useVisibleTask$(() => { 
-    const classList = document.querySelector('html')?.classList
-    if (classList?.contains('dark')) {
-      currentTheme.value = 'dark'
-    } else {
-      currentTheme.value = 'light'
+  useVisibleTask$(() => {
+    const _cacheTheme = localStorage.getItem('theme')
+    if (_cacheTheme) {
+      currentTheme.value = _cacheTheme as Theme
+      if (_cacheTheme === 'dark') {
+        document.querySelector('html')?.classList.add('dark')
+      } else {
+        document.querySelector('html')?.classList.remove('dark')
+      }
+      localStorage.setItem('theme', currentTheme.value)
+    } else { 
+      localStorage.setItem('theme', 'light')
     }
   })
   const changeTheme = $(() => { 
@@ -31,6 +37,7 @@ export default component$(() => {
       document.querySelector('html')?.classList.remove('dark')
       currentTheme.value = 'light'
     }
+    localStorage.setItem('theme', currentTheme.value)
   })
   return (
     <nav class="bg-white dark:bg-gray-900 sticky w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">

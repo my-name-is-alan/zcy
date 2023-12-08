@@ -42,7 +42,7 @@ export default component$<GalleryList>(({ list }) => {
           {
               currentList.value.map((v:string[]) => { 
                   return (
-                      <div class="grid gap-4">
+                      <div class="grid gap-4 items-stretch">
                             {
                                 v.map((img:string) => { 
                                     return (
