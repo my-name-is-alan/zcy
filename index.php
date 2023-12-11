@@ -1,6 +1,6 @@
 <!-- 获取./imgs文件夹下的所有图片 -->
 <?php
-$dir = "./imgs";
+$dir = "./img1s";
 $files = scandir($dir);
 $files = array_diff($files, array('.', '..'));
 // 并且将文件拼接为 http://localhost:8080/imgs/xxx.jpg 的形式
