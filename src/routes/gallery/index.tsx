@@ -1,4 +1,4 @@
-import { component$, useStore, useTask$, } from "@builder.io/qwik";
+import { component$, useStore, } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import Gallery from "~/components/UI/Gallery";
 
@@ -35,11 +35,11 @@ export default component$(() => {
     total: 0,
     finished: false,
   }) 
-  useTask$(async () => { 
-    const data = await fetch('http://101.132.250.82:8888/all')
-    const json = await data.json()
-    galleryList.list = json.map((v:string)=> `http://101.132.250.82:8888/image/${v}`)
-  })
+  // useTask$(async () => { 
+  //   const data = await fetch('http://101.132.250.82:8888/all')
+  //   const json = await data.json()
+  //   galleryList.list = json.map((v:string)=> `http://101.132.250.82:8888/image/${v}`)
+  // })
   return (
     <div class="pt-4">
       <Gallery {...galleryList} />
