@@ -13,6 +13,7 @@ export default component$(() => {
   }
   
   const currentTheme = useSignal<Theme>('light')
+
   useVisibleTask$(() => {
     const _cacheTheme = localStorage.getItem('theme')
     if (_cacheTheme) {
